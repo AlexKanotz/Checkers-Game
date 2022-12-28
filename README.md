@@ -1,2 +1,5 @@
 # Checkers-Game
-A fun checkers game written in Java.
+Created by: Alex Kanotz
+
+Future Implementations:
+Create an option to play against a computer
