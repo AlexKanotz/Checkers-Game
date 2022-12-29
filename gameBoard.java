@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -53,9 +54,6 @@ public class gameBoard implements ActionListener {
         buttonArray = new ArrayList<JButton>();
         int x = 90, y = 80, j = 0;
 
-        blueCheckerPiece = new ImageIcon("Images/blueChecker.png");
-        redCheckerPiece = new ImageIcon("Images/redChecker.png");
-
         for (int i = 0; i < 64; i++) {
             button = new JButton();
             button.setFocusable(false);
@@ -100,10 +98,14 @@ public class gameBoard implements ActionListener {
         redCheckerArray = new ArrayList<Boolean>();
         blueCheckerKingArray = new ArrayList<Boolean>();
         redCheckerKingArray = new ArrayList<Boolean>();
+        
+        blueCheckerPiece = new ImageIcon("Images/blueChecker.png");
+        redCheckerPiece = new ImageIcon("Images/redChecker.png");
 
         for (int i = 0; i < buttonArray.size(); i++) {
             if (i < 12) {
-                image = blueCheckerPiece.getImage();
+            	URL url = gameBoard.class.getResource("blueChecker.png");
+            	image = Toolkit.getDefaultToolkit().getImage(url);
                 image = image.getScaledInstance(70, 70, java.awt.Image.SCALE_SMOOTH);
                 blueCheckerPiece = new ImageIcon(image);
                 buttonArray.get(i).setIcon(blueCheckerPiece);
@@ -112,7 +114,8 @@ public class gameBoard implements ActionListener {
                 redCheckerArray.add(false);
             }
             else if (i > 19) {
-                image = redCheckerPiece.getImage();
+            	URL url = gameBoard.class.getResource("redChecker.png");
+            	image = Toolkit.getDefaultToolkit().getImage(url);
                 image = image.getScaledInstance(70, 70, java.awt.Image.SCALE_SMOOTH);
                 redCheckerPiece = new ImageIcon(image);
                 buttonArray.get(i).setIcon(redCheckerPiece);
@@ -348,13 +351,13 @@ public class gameBoard implements ActionListener {
 
         // Display button to return to the start menu
         startMenuButton = new JButton("START MENU");
-        startMenuButton.setBounds(365, 900, 120, 40);
+        startMenuButton.setBounds(365, 890, 120, 40);
         startMenuButton.addActionListener(this);
         startMenuButton.setFocusable(false);
 
         // Display button to restart the game
         restartButton = new JButton("RESTART");
-        restartButton.setBounds(495, 900, 120, 40);
+        restartButton.setBounds(495, 890, 120, 40);
         restartButton.addActionListener(this);
         restartButton.setFocusable(false);
 
@@ -1200,7 +1203,8 @@ public class gameBoard implements ActionListener {
     // Create a red checker piece king and check of a winner.
     public void createRedKing(final int index) {
         redCheckerKing = new ImageIcon("Images/redCheckerKing.png");
-        image = redCheckerKing.getImage();
+        URL url = gameBoard.class.getResource("redCheckerKing.png");
+    	image = Toolkit.getDefaultToolkit().getImage(url);
         image = image.getScaledInstance(70, 70, java.awt.Image.SCALE_SMOOTH);
         redCheckerKing = new ImageIcon(image);
         buttonArray.get(index).setIcon(redCheckerKing);
@@ -1222,7 +1226,8 @@ public class gameBoard implements ActionListener {
     // Create a blue checker piece king and check if there is a winner.
     public void createBlueKing(final int index) {
         blueCheckerKing = new ImageIcon("Images/blueCheckerKing.png");
-        image = blueCheckerKing.getImage();
+        URL url = gameBoard.class.getResource("blueCheckerKing.png");
+    	image = Toolkit.getDefaultToolkit().getImage(url);
         image = image.getScaledInstance(70, 70, java.awt.Image.SCALE_SMOOTH);
         blueCheckerKing = new ImageIcon(image);
         buttonArray.get(index).setIcon(blueCheckerKing);
