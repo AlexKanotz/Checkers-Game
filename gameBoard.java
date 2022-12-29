@@ -1133,6 +1133,21 @@ public class gameBoard implements ActionListener {
             }
         }
     } // End jumpRedPiece method
+    
+    
+    // **********************************************************
+    // *                  updatePiece method                    *
+    // **********************************************************
+    public void updatePiece(final int index) {
+        if (redCheckerArray.get(currentSpace))
+            updateRedPiece(index);
+        else if (blueCheckerArray.get(currentSpace))
+            updateBluePiece(index);
+        else if (redCheckerKingArray.get(currentSpace))
+            updateRedKingPiece(index);
+        else if (blueCheckerKingArray.get(currentSpace))
+            updateBlueKingPiece(index);
+    } // End updatePiece method
 
 
     // **********************************************************
@@ -1188,9 +1203,9 @@ public class gameBoard implements ActionListener {
     // **********************************************************
     // Determine if the piece is able to become a king.
     public boolean canBeKing(final int index) {
-        if ((index == 0 || index == 1 || index == 2 || index == 3) && player == 'r')
+        if ((index == 0 || index == 1 || index == 2 || index == 3) && (redCheckerArray.get(currentSpace) && player == 'r'))
             return true;
-        else if ((index == 28 || index == 29 || index == 30 || index == 31) && player == 'b')
+        else if ((index == 28 || index == 29 || index == 30 || index == 31)  && (blueCheckerArray.get(currentSpace) && player == 'b'))
             return true;
 
         return false;
@@ -1202,7 +1217,7 @@ public class gameBoard implements ActionListener {
     // **********************************************************
     // Create a red checker piece king and check of a winner.
     public void createRedKing(final int index) {
-        redCheckerKing = new ImageIcon("Images/redCheckerKing.png");
+		redCheckerKing = new ImageIcon("Images/redCheckerKing.png");
         URL url = gameBoard.class.getResource("redCheckerKing.png");
     	image = Toolkit.getDefaultToolkit().getImage(url);
         image = image.getScaledInstance(70, 70, java.awt.Image.SCALE_SMOOTH);
@@ -1316,19 +1331,4 @@ public class gameBoard implements ActionListener {
         buttonArray.get(index).setIcon(null);
         frame.repaint();
     } // End removePiece method
-
-
-    // **********************************************************
-    // *                  updatePiece method                    *
-    // **********************************************************
-    public void updatePiece(final int index) {
-        if (redCheckerArray.get(currentSpace))
-            updateRedPiece(index);
-        else if (blueCheckerArray.get(currentSpace))
-            updateBluePiece(index);
-        else if (redCheckerKingArray.get(currentSpace))
-            updateRedKingPiece(index);
-        else if (blueCheckerKingArray.get(currentSpace))
-            updateBlueKingPiece(index);
-    } // End updatePiece method
 } // End gameBoard class
