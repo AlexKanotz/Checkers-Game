@@ -647,7 +647,7 @@ public class gameBoard implements ActionListener {
     } // End moveKingOneSpace method
 
 
-        // **********************************************************
+    // **********************************************************
     // *                  jumpBluePiece method                  *
     // **********************************************************
     // Move the red checker piece and remove the blue checker piece
@@ -811,7 +811,7 @@ public class gameBoard implements ActionListener {
             }
         }
         // Check if current piece is on the third or fifth column moving downwards
-        else if ((index - currentSpace == 7 || index - currentSpace == 9 && redCheckerKingArray.get(currentSpace)) &&
+        else if (((index - currentSpace == 7 || index - currentSpace == 9) && redCheckerKingArray.get(currentSpace)) &&
         (currentSpace == 1 || currentSpace == 9 || currentSpace == 17 || // Third column
         currentSpace == 2 || currentSpace == 10 || currentSpace == 18))  // Fifth column
         {
@@ -837,7 +837,7 @@ public class gameBoard implements ActionListener {
             }
         }
         // Check if current piece is on the fourth or sixth column moving downwards
-        else if ((index - currentSpace == 7 || index - currentSpace == 9 && redCheckerKingArray.get(currentSpace)) &&
+        else if (((index - currentSpace == 7 || index - currentSpace == 9) && redCheckerKingArray.get(currentSpace)) &&
         (currentSpace == 5 || currentSpace == 13 || currentSpace == 21 || // Fourth column
         currentSpace == 6 || currentSpace == 14 || currentSpace == 22))   // Sixth column
         {
@@ -1055,7 +1055,7 @@ public class gameBoard implements ActionListener {
             }
         }
         // Check if current piece is on the third or fifth column
-        else if ((currentSpace - index == 7 || currentSpace - index == 9 && blueCheckerKingArray.get(currentSpace)) &&
+        else if (((currentSpace - index == 7 || currentSpace - index == 9) && blueCheckerKingArray.get(currentSpace)) &&
         (currentSpace == 9 || currentSpace == 17 || currentSpace == 25 || // Third column
         currentSpace == 10 || currentSpace == 18 || currentSpace == 26)) // Fifth column
         {
@@ -1081,7 +1081,7 @@ public class gameBoard implements ActionListener {
             }
         }
         // Check if current piece is on the fourth or sixth column moving upwards
-        else if ((currentSpace - index == 7 || currentSpace - index == 9 && blueCheckerKingArray.get(currentSpace)) &&
+        else if (((currentSpace - index == 7 || currentSpace - index == 9) && blueCheckerKingArray.get(currentSpace)) &&
         (currentSpace == 13 || currentSpace == 21 || currentSpace == 29 || // Fourth column
         currentSpace == 14 || currentSpace == 22 || currentSpace == 30))  // Sixth column
         {
